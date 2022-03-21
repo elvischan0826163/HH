@@ -1,0 +1,19 @@
+https://www.youtube.com/watch?v=Ng_zi11N4_c&t=424s
+
+RDS -> set up MySQL
+
+SET VPC secruity group to everywhere
+
+Use older verion MySQL, otherwise Sequel Pro cannot connect to the RDS.
+
+root
+root1234
+===========================================================================
+
+https://www.youtube.com/watch?v=b0g-FJ5Zbb8
+
+set Node.js web to http web by github -> codepipline -> elastic beanstalk
+
+set Environment properties set Name: port , Value: 8080, not 8081.
+
+===================================================================

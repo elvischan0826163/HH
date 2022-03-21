@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-sm-0"></div>
+        <div class="col-6 col-sm-12">
+            <br>
+            <div><button type="button" class="btn btn-primary" id="mainPage" style="width:100%;">主頁</button></div>
+            <br>
+        </div>
+        <div class="col-3 col-sm-0"></div>
+    </div>
+</div>
+
+<div class="stockTable">
+    <div id="stockTable">
+        <table class="table">
+            <thead>
+                <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">貨品名稱</th>
+                        <th scope="col">數量</th>
+                        <th scope="col">出售日期</th>
+                        <th scope="col">客人名稱</th>
+                        <th scope="col">客人地址</th>
+                        <th scope="col">客人電話</th>
+                        <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="stockTbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/getStock.js"></script>

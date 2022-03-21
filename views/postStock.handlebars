@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-sm-0"></div>
+        <div class="col-6 col-sm-12">
+            <br>
+            <div><button type="button" class="btn btn-primary" id="mainPage" style="width:100%;">主頁</button></div>
+            <br>
+        </div>
+        <div class="col-3 col-sm-0"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-sm-0"></div>
+        <div class="col-6 col-sm-12">
+            <form action="/postStock" method="POST">
+                <div class="mb-3">
+                    <label for="Stock" class="form-label">貨品名稱</label>
+                    <input type="text" class="form-control" name="Stock">
+                </div>
+                <div class="mb-3">
+                    <label for="Amount" class="form-label">數量</label>
+                    <input type="number" class="form-control" name="Amount">
+                </div>
+                <div class="mb-3">
+                    <label for="Time" class="form-label">出售日期</label>
+                    <input type="date" class="form-control" name="Time">
+                </div>
+                <div class="mb-3">
+                    <label for="Cname" class="form-label">客人名稱</label>
+                    <input type="text" class="form-control" name="Cname">
+                </div>
+                <div class="mb-3">
+                    <label for="Caddress" class="form-label">客人地址</label>
+                    <input type="text" class="form-control" name="Caddress">
+                </div>
+                <div class="mb-3">
+                    <label for="Ccontect" class="form-label">客人電話</label>
+                    <input type="text" class="form-control" name="Ccontect">
+                </div>
+                <button type="submit" class="btn btn-primary">確定</button>
+            </form>
+        </div>
+        <div class="col-3 col-sm-0"></div>
+    </div>
+</div>
+
+<script src="/javascripts/postStock.js"></script>
