@@ -23,7 +23,7 @@ exports.postStocK = async function (req, res, next) {
 exports.getStockData = async function (req, res, next) {
     try {
         console.log(req.user.store)
-        var result = await sqlQuery(`SELECT * FROM storesData WHERE Store = "${req.user.store}" ORDER BY 'time' DESC;`);
+        var result = await sqlQuery(`SELECT *, DATE_ADD(Time, INTERVAL 1 DAY) as Time1 FROM storesData WHERE Store = "${req.user.store}" ORDER BY 'time' DESC;`);
         res.json(result);
     }
     catch (error) {
@@ -60,7 +60,7 @@ exports.adminCalling = async function (req, res, next) {
     try {
         console.log()
         if (req.user.store == 'Admin'){
-            var result = await sqlQuery(`SELECT id, Stock, Amount, Time, Store FROM storesData WHERE DATE_FORMAT(Time,'%d') = DATE_FORMAT(Now(),'%d');`);
+            var result = await sqlQuery(`SELECT id, Stock, Amount, DATE_ADD(Time, INTERVAL 1 DAY) as Time, Store FROM storesData WHERE DATE_FORMAT(Time,'%d') = DATE_FORMAT(Now(),'%d');`);
             res.json(result);
         }
     }
