@@ -11,7 +11,7 @@ const localStrategy = new LocalStrategy(
     async function (store, password, done) {
         try {
             console.log("localStrategy check 1");
-            let user = await sqlQuery(`SELECT * FROM TB_user WHERE store = "${store}"`);
+            let user = await sqlQuery(`SELECT * FROM user WHERE store = "${store}"`);
             user = user[0];
             if (user.length === 0) {
                 console.log("localStrategy check 2");
@@ -48,7 +48,7 @@ const deserializeUserCB = async function (authData, done) {
     console.log(authData)
     try {
         console.log("deserializeUserCB check 2");
-        let user = await sqlQuery(`SELECT * FROM TB_user WHERE store = "${authData}"`);
+        let user = await sqlQuery(`SELECT * FROM user WHERE store = "${authData}"`);
         user = user[0];
         if (user.length === 0) {
             console.log("deserializeUserCB check 3");
