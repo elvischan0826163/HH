@@ -15,3 +15,24 @@ https://www.youtube.com/watch?v=MMj3nsTLgjY
 set Node.js web to http web by github -> codepipline -> elastic beanstalk
 
 ===========================================================================
+
+CREATE TABLE `TB_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `store` varchar(1000) NOT NULL DEFAULT '',
+  `password` varchar(1000) NOT NULL DEFAULT '',
+  `username` varchar(100) NOT NULL DEFAULT '',
+  `email` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `storesData` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `Stock` varchar(100) DEFAULT NULL,
+  `Amount` int(100) DEFAULT NULL,
+  `Time` date DEFAULT NULL,
+  `Cname` varchar(100) DEFAULT NULL,
+  `Caddress` varchar(100) DEFAULT NULL,
+  `Ccontect` varchar(100) DEFAULT NULL,
+  `Store` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
