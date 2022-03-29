@@ -36,3 +36,5 @@ CREATE TABLE `storesData` (
   `Store` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+
+git config --global http.sslVerify "false
