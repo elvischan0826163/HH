@@ -13,6 +13,7 @@ app.set("views", "./views");
 app.engine('handlebars', hb.engine({ defaultLayout: 'main' }));
 app.set("view engine", "handlebars");
 
+app.use('/js', express.static(path.join(__dirname, "node_modules/jquery/dist")))
 app.use(express.static(path.join(__dirname, "public")))
 //cookparser first, extended flase to use node library
 app.use(cookieParser());
