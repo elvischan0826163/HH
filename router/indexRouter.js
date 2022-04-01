@@ -20,7 +20,7 @@ indexRouter.get('/login', (req, res) => res.render("login"));
 
 indexRouter.post('/login', userAuth.authUser);
 
-indexRouter.get('/logined', (req, res) => res.render("login", {msg2: "已登入"}));
+indexRouter.get('/logined', (req, res) => res.render("index"));
 
 indexRouter.get('/failLogin', (req, res) => res.render("login", {msg: "登入失敗"}));
 
@@ -39,5 +39,7 @@ indexRouter.delete('/deleteData', userAuth.isAuth, indexHandler.deleteData);
 indexRouter.get('/admin', userAuth.isAuth, (req, res) => res.render("admin"));
 
 indexRouter.get('/adminCalling', userAuth.isAuth, indexHandler.adminCalling);
+
+indexRouter.get("/searchingData", userAuth.isAuth, indexHandler.searchingData)
 
 module.exports = indexRouter;

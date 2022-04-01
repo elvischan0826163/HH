@@ -1,4 +1,5 @@
 'use strict'
+const e = require("express");
 const sqlQuery = require("../sqlQuery")
 
 //initial set up
@@ -23,8 +24,44 @@ exports.postStocK = async function (req, res, next) {
 exports.getStockData = async function (req, res, next) {
     try {
         console.log(req.user.store)
-        var result = await sqlQuery(`SELECT *, DATE_ADD(Time, INTERVAL 1 DAY) as Time1 FROM storesdata WHERE Store = "${req.user.store}" ORDER BY 'time' DESC;`);
+        var result = await sqlQuery(`SELECT *, DATE_ADD(Time, INTERVAL 1 DAY) as Time1 FROM storesdata WHERE Store = "${req.user.store}" ORDER BY Time DESC;`);
         res.json(result);
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+}
+
+exports.searchingData = async function (req, res, next) {
+    try {
+        var From, To;
+            if (req.query.From != "") {
+                From = req.query.From;
+            }
+            else {
+                From = "0000-00-00"
+            }
+            if (req.query.To != "") {
+                To = req.query.To;
+            }
+            else {
+                To = "2222-02-02"
+            }
+            if (req.query.Cname != ""){
+                console.log("checkingPoint1")
+                console.log(`SELECT *, DATE_ADD(Time, INTERVAL 1 DAY) as Time1 FROM storesdata WHERE Time >= "${From}" AND Time <= '${To}' And Store = '${req.user.store}'And Cname REGEXP '${req.query.Cname}' ORDER BY Time DESC;`);
+                var result = await sqlQuery(`SELECT *, DATE_ADD(Time, INTERVAL 1 DAY) as Time1 FROM storesdata WHERE Time >= "${From}" AND Time <= '${To}' And Store = '${req.user.store}'And Cname REGEXP '${req.query.Cname}' ORDER BY Time DESC;`);
+                res.json(result);
+            }
+            else {
+                console.log("checkingPoint2")
+                console.log(req.query.Cname);
+                console.log(req.query.From);
+                console.log(req.query.To);
+                var result = await sqlQuery(`SELECT *, DATE_ADD(Time, INTERVAL 1 DAY) as Time1 FROM storesdata WHERE Time >= "${From}" AND Time <= '${To}' And Store = '${req.user.store}' ORDER BY Time DESC;`);
+                res.json(result);
+            }
     }
     catch (error) {
         console.log(error);
@@ -45,12 +82,12 @@ exports.changePassword = async function (req, res, next) {
 }
 
 exports.deleteData = async function (req, res, next) {
-    try{
+    try {
         console.log("delete")
         var result = await sqlQuery(`DELETE FROM storesdata WHERE id = ${req.body.id} And store = "${req.user.store}"`);
         res.json(result);
     }
-    catch(error){
+    catch (error) {
         console.log(error);
         res.sendStatus(400);
     }
@@ -59,7 +96,7 @@ exports.deleteData = async function (req, res, next) {
 exports.adminCalling = async function (req, res, next) {
     try {
         console.log()
-        if (req.user.store == 'Admin'){
+        if (req.user.store == 'Admin') {
             var result = await sqlQuery(`SELECT id, Stock, Amount, DATE_ADD(Time, INTERVAL 1 DAY) as Time, Store FROM storesdata WHERE DATE_FORMAT(Time,'%d') = DATE_FORMAT(Now(),'%d');`);
             res.json(result);
         }

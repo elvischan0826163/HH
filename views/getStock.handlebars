@@ -3,31 +3,79 @@
         <div class="col-3 col-sm-0"></div>
         <div class="col-6 col-sm-12">
             <br>
-            <div><button type="button" class="btn btn-primary" id="mainPage" style="width:100%;">主頁</button></div>
+            <div><button type="button" class="btn btn-primary" id="mainPage" style="width:100%;">返回主頁</button></div>
             <br>
         </div>
         <div class="col-3 col-sm-0"></div>
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-sm-0"></div>
+        <div class="col-6 col-sm-12">
+
+            <div class="mb-3">
+                <label for="Cname" class="form-label">客人名稱</label>
+                <input type="text" class="form-control" id="Cname">
+            </div>
+            <div class="mb-3">
+                <label for="Time" class="form-label">由</label>
+                <input type="date" class="form-control" id="From">
+            </div>
+            <div class="mb-3">
+                <label for="Time" class="form-label">至</label>
+                <input type="date" class="form-control" id="To">
+            </div>
+            <button class="btn btn-primary" id="searchingData" onclick="searchingData()">確定</button>
+
+        </div>
+        <div class="col-3 col-sm-0"></div>
+    </div>
+</div>
+
+</br>
+
 <div class="stockTable">
     <div id="stockTable">
         <table class="table">
             <thead>
                 <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">貨品名稱</th>
-                        <th scope="col">數量</th>
-                        <th scope="col">出售日期</th>
-                        <th scope="col">客人名稱</th>
-                        <th scope="col">客人地址</th>
-                        <th scope="col">客人電話</th>
-                        <th scope="col"></th>
+                    <th scope="col">#</th>
+                    <th scope="col">貨品名稱</th>
+                    <th scope="col">數量</th>
+                    <th scope="col">出售日期</th>
+                    <th scope="col">客人名稱</th>
+                    <th scope="col">客人詳情</th>
+                    <th scope="col">客人地址</th>
+                    <th scope="col">客人電話</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody id="stockTbody">
             </tbody>
         </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">確定消除記錄?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">否</button>
+                <button type="button" class="btn btn-primary" onclick="deleteData()">是</button>
+            </div>
+        </div>
     </div>
 </div>
 
