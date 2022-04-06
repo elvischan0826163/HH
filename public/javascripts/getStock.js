@@ -10,10 +10,10 @@ function getStockData() {
                 <td>${response.data[i].Amount}</td> + 
                 <td>${stringToDate(response.data[i].Time1)}</td> + 
                 <td>${response.data[i].Cname}</div></td> + 
-                <td><button type="button" class="btn btn-success" style="width:60%;" onclick="showClient(${i})">詳情</button></td> + 
+                <td><button type="button" class="btn btn-success" onclick="showClient(${i})">詳情</button></td> + 
                 <td><div id="clientAddress-${i}" style="display:none;">${response.data[i].Caddress}</div></td> + 
                 <td><div id="clientContect-${i}" style="display:none;">${response.data[i].Ccontect}</div></td> + 
-                <td><button type="button" class="btn btn-danger" id="logOutPage" style="width:60%;" data-toggle="modal" data-target="#exampleModal" onclick="showDeleteModal(${response.data[i].id})">消除</button></td> + 
+                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" onclick="showDeleteModal(${response.data[i].id})">消除</button></td> + 
                 </tr>`)
             }
         })
@@ -87,10 +87,10 @@ function searchingData() {
             <td>${response.data[i].Amount}</td> + 
             <td>${stringToDate(response.data[i].Time1)}</td> + 
             <td>${response.data[i].Cname}</div></td> + 
-            <td><button type="button" class="btn btn-success" style="width:60%;" onclick="showClient(${i})">詳情</button></td> + 
+            <td><button type="button" class="btn btn-success" onclick="showClient(${i})">詳情</button></td> + 
             <td><div id="clientAddress-${i}" style="display:none;">${response.data[i].Caddress}</div></td> + 
             <td><div id="clientContect-${i}" style="display:none;">${response.data[i].Ccontect}</div></td> + 
-            <td><button type="button" class="btn btn-danger" id="logOutPage" style="width:60%;" data-toggle="modal" data-target="#exampleModal" onclick="showDeleteModal(${response.data[i].id})">消除</button></td> + 
+            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" onclick="showDeleteModal(${response.data[i].id})">消除</button></td> + 
             </tr>`)
             }
         })
