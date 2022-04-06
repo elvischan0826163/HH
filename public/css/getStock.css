@@ -31,3 +31,9 @@
     border: 1px solid gray;
     padding: 5px;
   } */
+
+  @media only screen and (max-width: 600px) {
+    .td-Caddress {
+      width:100px;
+    }
+  }
