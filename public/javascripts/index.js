@@ -6,6 +6,10 @@ $("#postStockPage").click(function () {
     location.href = "/postStock"
 });
 
+$("#callCustomerPage").click(function () {
+    location.href = "/callCustomer"
+});
+
 $("#passwordPage").click(function () {
     location.href = "/password"
 });

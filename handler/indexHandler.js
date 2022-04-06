@@ -84,7 +84,7 @@ exports.changePassword = async function (req, res, next) {
 exports.deleteData = async function (req, res, next) {
     try {
         console.log("delete")
-        var result = await sqlQuery(`DELETE FROM storesdata WHERE id = ${req.body.id} And store = "${req.user.store}"`);
+        var result = await sqlQuery(`DELETE FROM storesdata WHERE id = ${req.body.id} And store = "${req.user.store}";`);
         res.json(result);
     }
     catch (error) {
@@ -97,9 +97,22 @@ exports.adminCalling = async function (req, res, next) {
     try {
         console.log()
         if (req.user.store == 'Admin') {
-            var result = await sqlQuery(`SELECT id, Stock, Amount, DATE_ADD(Time, INTERVAL 1 DAY) as Time, Store FROM storesdata WHERE DATE_FORMAT(Time,'%d') = DATE_FORMAT(Now(),'%d');`);
+            var result = await sqlQuery(`SELECT id, Stock, Amount, DATE_ADD(Time, INTERVAL 1 DAY) as Time, Store FROM storesdata WHERE DATE_FORMAT(Time,'%d') = DATE_FORMAT(Now(),'%d') AND Time < DATE(NOW());`);
             res.json(result);
         }
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+}
+
+
+exports.customerCalling = async function (req, res, next) {
+    try {
+        console.log()
+            var result = await sqlQuery(`SELECT *, DATE_ADD(Time, INTERVAL 1 DAY) as Time, Store FROM storesdata WHERE DATE_FORMAT(Time,'%d') = DATE_FORMAT(Now(),'%d') AND Time < DATE(NOW()) And store = "${req.user.store}";`);
+            res.json(result);
     }
     catch (error) {
         console.log(error);

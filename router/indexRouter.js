@@ -40,6 +40,10 @@ indexRouter.get('/admin', userAuth.isAuth, (req, res) => res.render("admin"));
 
 indexRouter.get('/adminCalling', userAuth.isAuth, indexHandler.adminCalling);
 
-indexRouter.get("/searchingData", userAuth.isAuth, indexHandler.searchingData)
+indexRouter.get("/searchingData", userAuth.isAuth, indexHandler.searchingData);
+
+indexRouter.get('/callCustomer', userAuth.isAuth, (req, res) => res.render("callCustomer"));
+
+indexRouter.get('/customerCalling', userAuth.isAuth, indexHandler.customerCalling);
 
 module.exports = indexRouter;
