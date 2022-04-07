@@ -12,7 +12,12 @@ exports.indexStart = function (req, res, next) {
 exports.postStocK = async function (req, res, next) {
     try {
         console.log("staring poststock function");
-        var result = await sqlQuery(`INSERT INTO storesdata (Stock, Amount, Time, Cname, Caddress, Ccontect, Month, Store)  VALUES ("${req.body.Stock}", ${req.body.Amount}, "${req.body.Time}", "${req.body.Cname}", "${req.body.Caddress}", "${req.body.Ccontect}", "${req.body.Month}", "${req.user.store}");`);
+        if(req.body.Amount == ""){
+            var result = await sqlQuery(`INSERT INTO storesdata (Stock, Amount, Time, Cname, Caddress, Ccontect, Month, Store)  VALUES ("${req.body.Stock}", 0, "${req.body.Time}", "${req.body.Cname}", "${req.body.Caddress}", "${req.body.Ccontect}", "${req.body.Month}", "${req.user.store}");`);
+        }
+        else{
+            var result = await sqlQuery(`INSERT INTO storesdata (Stock, Amount, Time, Cname, Caddress, Ccontect, Month, Store)  VALUES ("${req.body.Stock}", ${req.body.Amount}, "${req.body.Time}", "${req.body.Cname}", "${req.body.Caddress}", "${req.body.Ccontect}", "${req.body.Month}", "${req.user.store}");`);
+        }
         return res.redirect("/postStocK");
     }
     catch (error) {
