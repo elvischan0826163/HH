@@ -46,4 +46,6 @@ indexRouter.get('/callCustomer', userAuth.isAuth, (req, res) => res.render("call
 
 indexRouter.get('/customerCalling', userAuth.isAuth, indexHandler.customerCalling);
 
+indexRouter.post('/editStocK', userAuth.isAuth, indexHandler.editStocK);
+
 module.exports = indexRouter;

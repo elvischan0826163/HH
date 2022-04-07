@@ -26,6 +26,40 @@ exports.postStocK = async function (req, res, next) {
     }
 }
 
+exports.editStocK = async function (req, res, next) {
+    // try {
+    //     console.log("staring editstock function");
+    //     if(req.body.Amount == ""){
+    //         console.log("staring editstock function 001");
+    //         var result = await sqlQuery(`UPDATE storesdata  SET Stock = "${req.body.Stock}", Amount = 0, Time = "${req.body.Time}", Cname = "${req.body.Cname}", Caddress = "${req.body.Caddress}", Ccontect = "${req.body.Ccontect}", Month = "${req.body.Month}", Store = "${req.user.store}" WHERE id = "${req.body.id}";`);
+    //     }
+    //     else{
+    //         console.log("staring editstock function 002");
+    //         console.log(`UPDATE storesdata  SET Stock = "${req.body.Stock}", Amount = ${req.body.Amount}, Time = "${req.body.Time}", Cname = "${req.body.Cname}", Caddress = "${req.body.Caddress}", Ccontect = "${req.body.Ccontect}", Month = "${req.body.Month}", Store = "${req.user.store}" WHERE id = "${req.body.id}";`);
+    //         var result = await sqlQuery(`UPDATE storesdata  SET Stock = "${req.body.Stock}", Amount = ${req.body.Amount}, Time = "${req.body.Time}", Cname = "${req.body.Cname}", Caddress = "${req.body.Caddress}", Ccontect = "${req.body.Ccontect}", Month = "${req.body.Month}", Store = "${req.user.store}" WHERE id = "${req.user.id}";`);
+    //     }
+    //     return res.redirect("/getStocK");
+    // }
+    // catch (error) {
+    //     console.log(error);
+    //     res.sendStatus(400);
+    // }
+    try {
+        console.log("staring poststock function");
+        if(req.body.Amount == ""){
+            var result = await sqlQuery(`UPDATE storesdata  SET Stock = "${req.body.Stock}", Amount = 0, Time = "${req.body.Time}", Cname = "${req.body.Cname}", Caddress = "${req.body.Caddress}", Ccontect = "${req.body.Ccontect}", Month = "${req.body.Month}", Store = "${req.user.store}" WHERE id = "${req.body.id}";`);
+        }
+        else{
+            var result = await sqlQuery(`UPDATE storesdata  SET Stock = "${req.body.Stock}", Amount = ${req.body.Amount}, Time = "${req.body.Time}", Cname = "${req.body.Cname}", Caddress = "${req.body.Caddress}", Ccontect = "${req.body.Ccontect}", Month = "${req.body.Month}", Store = "${req.user.store}" WHERE id = "${req.body.id}";`);
+        }
+        return res.redirect("/getStocK");
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+}
+
 exports.getStockData = async function (req, res, next) {
     try {
         console.log(req.user.store)

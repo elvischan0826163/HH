@@ -75,9 +75,9 @@ function searchingData() {
         })
 }
 
-function addTable(response){
+function addTable(response) {
     for (var i = 0; i < response.data.length; i++) {
-        $('#stockTbody').append(`<tr> + 
+        $('#stockTbody').append(`<tr class="stockId-${response.data[i].id}"> + 
         <th scope="row">${i + 1}</th> + 
         <td>${response.data[i].Stock}</td> + 
         <td>${response.data[i].Amount}</td> + 
@@ -88,6 +88,26 @@ function addTable(response){
         <td><div id="clientContect-${i}" style="display:none;">${response.data[i].Ccontect}</div></td> + 
         <td>${response.data[i].Month}</div></td> +
         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" onclick="showDeleteModal(${response.data[i].id})">消除</button></td> + 
+        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal02" onclick="showEditModal(${response.data[i].id})">更改</button></td> + 
         </tr>`)
     }
+}
+
+function showEditModal(id) {
+    $("input[name='id']").val(id);
+    console.log($(`.stockId-${id}`).find("td:eq(0)").text());
+    $("input[name='Stock']").val($(`.stockId-${id}`).find("td:eq(0)").text());
+    console.log($(`.stockId-${id}`).find("td:eq(1)").text());
+    $("input[name='Amount']").val($(`.stockId-${id}`).find("td:eq(1)").text());
+    console.log($(`.stockId-${id}`).find("td:eq(2)").text());
+    $("input[name='Time']").val($(`.stockId-${id}`).find("td:eq(2)").text());
+    console.log($(`.stockId-${id}`).find("td:eq(3)").text());
+    $("input[name='Cname']").val($(`.stockId-${id}`).find("td:eq(3)").text());
+    console.log($(`.stockId-${id}`).find("td:eq(5)").text());
+    $("input[name='Caddress']").val($(`.stockId-${id}`).find("td:eq(5)").text());
+    console.log($(`.stockId-${id}`).find("td:eq(6)").text());
+    $("input[name='Ccontect']").val($(`.stockId-${id}`).find("td:eq(6)").text());
+    console.log($(`.stockId-${id}`).find("td:eq(7)").text());
+    $("select[name='Month']").val($(`.stockId-${id}`).find("td:eq(7)").text());
+    document.getElementById('container').scrollLeft -= 200;
 }

@@ -1,86 +1,147 @@
 <link rel="stylesheet" href="css/getStock.css">
 
+<div id="container">
 
-<div class="container">
-    <div class="row">
-        <div class="col-3 col-sm-0"></div>
-        <div class="col-6 col-sm-12">
-            <br>
-            <div><button type="button" class="btn btn-primary" id="mainPage" style="width:100%;">返回主頁</button></div>
-            <br>
-        </div>
-        <div class="col-3 col-sm-0"></div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-3 col-sm-0"></div>
-        <div class="col-6 col-sm-12">
-
-            <div class="mb-3">
-                <label for="Cname" class="form-label">客人名稱</label>
-                <input type="text" class="form-control" id="Cname">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 col-sm-0"></div>
+            <div class="col-6 col-sm-12">
+                <br>
+                <div><button type="button" class="btn btn-primary" id="mainPage" style="width:100%;">返回主頁</button></div>
+                <br>
             </div>
-            <div class="mb-3">
-                <label for="Time" class="form-label">由</label>
-                <input type="date" class="form-control" id="From">
-            </div>
-            <div class="mb-3">
-                <label for="Time" class="form-label">至</label>
-                <input type="date" class="form-control" id="To">
-            </div>
-            <button class="btn btn-primary" id="searchingData" onclick="searchingData()">確定</button>
-
-        </div>
-        <div class="col-3 col-sm-0"></div>
-    </div>
-</div>
-
-</br>
-
-<div class="stockTable">
-    <div id="stockTable">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">貨品名稱</th>
-                    <th scope="col">數量</th>
-                    <th scope="col">出售日期</th>
-                    <th scope="col">客人名稱</th>
-                    <th scope="col">客人詳情</th>
-                    <th scope="col">客人地址</th>
-                    <th scope="col">客人電話</th>
-                    <th scope="col">提醒客戶(月)</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody id="stockTbody">
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">確定消除記錄?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">否</button>
-                <button type="button" class="btn btn-primary" onclick="deleteData()">是</button>
-            </div>
+            <div class="col-3 col-sm-0"></div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3 col-sm-0"></div>
+            <div class="col-6 col-sm-12">
+
+                <div class="mb-3">
+                    <label for="Cname" class="form-label">客人名稱</label>
+                    <input type="text" class="form-control" id="Cname">
+                </div>
+                <div class="mb-3">
+                    <label for="Time" class="form-label">由</label>
+                    <input type="date" class="form-control" id="From">
+                </div>
+                <div class="mb-3">
+                    <label for="Time" class="form-label">至</label>
+                    <input type="date" class="form-control" id="To">
+                </div>
+                <button class="btn btn-primary" id="searchingData" onclick="searchingData()">確定</button>
+
+            </div>
+            <div class="col-3 col-sm-0"></div>
+        </div>
+    </div>
+
+    </br>
+
+    <div class="stockTable">
+        <div id="stockTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">貨品名稱</th>
+                        <th scope="col">數量</th>
+                        <th scope="col">出售日期</th>
+                        <th scope="col">客人名稱</th>
+                        <th scope="col">客人詳情</th>
+                        <th scope="col">客人地址</th>
+                        <th scope="col">客人電話</th>
+                        <th scope="col">提醒客戶(月)</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="stockTbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal For Delete-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">確定消除記錄?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">否</button>
+                    <button type="button" class="btn btn-primary" onclick="deleteData()">是</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal For Edit-->
+    <div class="modal fade" id="exampleModal02" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">確定更改記錄?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/editStock" method="POST">
+                        <p>所有資料，可自行決定填寫與否。</p>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="id" style="display:none;">
+                            <label for="Stock" class="form-label">貨品名稱</label>
+                            <input type="text" class="form-control" name="Stock">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Amount" class="form-label">數量</label>
+                            <input type="number" class="form-control" name="Amount">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Time" class="form-label">出售日期</label>
+                            <input type="date" class="form-control" name="Time">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Cname" class="form-label">客人名稱</label>
+                            <input type="text" class="form-control" name="Cname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Caddress" class="form-label">客人地址</label>
+                            <input type="text" class="form-control" name="Caddress">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Ccontect" class="form-label">客人電話</label>
+                            <input type="text" class="form-control" name="Ccontect">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Month" class="form-label">提醒客戶(月)</label>
+                            <select type="text" class="form-control" name="Month">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">是</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">否</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script src="javascripts/jquery/dist/jquery.min.js"></script>
